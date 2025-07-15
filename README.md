@@ -225,10 +225,12 @@ python
 import pandas as pd
 data = pd.read_csv("creditcard.csv")
 data.head()
+
 🔹 Q kiya? Dataset ko pandas ke through load kiya aur head() se initial rows dekhe taki data ka structure samajh sakein.
 
 pd.options.display.max_columns = None
 data.tail()
+
 🔹 Q kiya? Saare columns properly dekh sakein, isliye max_columns None kiya, aur tail() se last rows dekhi.
 
 python
@@ -236,10 +238,12 @@ python
 data.shape
 print("Number of columns: {}".format(data.shape[1]))
 print("Number of rows: {}".format(data.shape[0]))
+
 🔹 Q kiya? Dataset ke size (rows & columns) ko samajhne ke liye.
 
 data.info()
 data.isnull().sum()
+
 🔹 Q kiya? Data types aur null values check karne ke liye. Ye ensure karta hai ki missing values hain ya nahi.
 
 2. Feature Scaling
@@ -252,21 +256,25 @@ data['Amount'] = sc.fit_transform(pd.DataFrame(data['Amount']))
 3. Drop Unnecessary Column
 
 data = data.drop(['Time'], axis=1)
+
 🔹 Q kiya? 'Time' column model ke liye relevant nahi tha, isliye remove kiya.
 
 4. Duplicate Check & Removal
 
 data.duplicated().any()
 data = data.drop_duplicates()
+
 🔹 Q kiya? Duplicate rows prediction ko mislead kar sakti hain, isliye unhe remove kiya.
 
 5. Class Imbalance Analysis
 
 data['Class'].value_counts()
+
 🔹 Q kiya? Fraudulent vs legitimate transaction ka distribution dekhne ke liye. Isse imbalance ka idea milta hai.
 
 sns.countplot(data['Class'])
 plt.show()
+
 🔹 Q kiya? Visual check kiya imbalance ko plot kar ke.
 
 6. Data Split for Training
@@ -275,6 +283,7 @@ X = data.drop('Class', axis=1)
 y = data['Class']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
 🔹 Q kiya? Features aur label ko alag kiya aur data ko training/testing sets me split kiya.
 
 7. Initial Model Training (Imbalanced Data)
@@ -283,12 +292,14 @@ classifier = {
     "Logistic Regression": LogisticRegression(),
     "Decision Tree Classifier": DecisionTreeClassifier()
 }
+
 🔹 Q kiya? Do different models ka comparison karne ke liye.
 
 for name, clf in classifier.items():
     clf.fit(X_train, y_train)
     y_pred = clf.predict(X_test)
     print(accuracy, precision, recall, f1 score)
+
 🔹 Q kiya? Models ko train kiya aur evaluate kiya unke performance metrics se.
 
 8. Undersampling (Class Balance Karna)
@@ -297,21 +308,25 @@ normal = data[data['Class']==0]
 fraud = data[data['Class']==1]
 normal_sample = normal.sample(n=473)
 new_data = pd.concat([normal_sample, fraud], ignore_index=True)
+
 🔹 Q kiya? Dataset me se legitimate transactions ka ek chhota subset liya taaki fraud aur non-fraud ka balance ho sake (undersampling).
 
 9. Model Training on Undersampled Data
 
 X_train, X_test, y_train, y_test = train_test_split(...)
 # Same training loop
+
 🔹 Q kiya? Balanced data par model train karne se model fairness improve hoti hai.
 
 10. Oversampling using SMOTE
 
 from imblearn.over_sampling import SMOTE
 X_res, y_res = SMOTE().fit_resample(X, y)
+
 🔹 Q kiya? Minority class (fraud) ke synthetic samples generate kiye taaki imbalance ko fix kiya ja sake.
 
 11. Model Training on Oversampled Data
+
 🔹 Q kiya? SMOTE ke baad models ko dobara train kiya taaki better accuracy mil sake.
 
 12. Model Saving
@@ -319,24 +334,37 @@ X_res, y_res = SMOTE().fit_resample(X, y)
 dtc = DecisionTreeClassifier()
 dtc.fit(X_res, y_res)
 joblib.dump(dtc, "credit_card_model.pkl")
+
 🔹 Q kiya? Trained model ko save kiya future use ke liye, bina dobara train kiye.
 
 13. Prediction on New Sample
 
 model = joblib.load("credit_card_model.pkl")
 pred = model.predict(df_input)
+
 🔹 Q kiya? Naye transaction pe prediction lene ke liye trained model ko load kiya.
 
 if pred[0] == 1:
     print("Fraud")
 else:
     print("Legit")
+
 🔹 Q kiya? Predict kiya ki transaction fraudulent hai ya nahi.
 
 ✅ Summary:
 Ye pura process kr ke credit card fraud detection ke liye machine learning model banaya, train kiya, aur optimize kar ke –
 imbalance handle karte hue, models compare karke, aur best model ko save karke prediction Kiya.
 
+---
+✅ streamlit app.py Screenshots Preview
+
+<img width="1794" height="952" alt="1" src="https://github.com/user-attachments/assets/69a6cc6b-5f62-42b6-9703-cd5156f7734f" />
+<img width="1719" height="852" alt="2" src="https://github.com/user-attachments/assets/c949f060-c2c9-49ef-b073-eecf262b1528" />
+<img width="1775" height="850" alt="3" src="https://github.com/user-attachments/assets/941a0e81-aa95-4d8d-879e-d68d337d8d91" />
+<img width="1607" height="375" alt="4" src="https://github.com/user-attachments/assets/ab8e96a8-5952-41bc-95d7-42229c929efc" />
+
+
+---
 ## 🔗 Author
 
 📧 jayeshpardeshi161@gmail.com
