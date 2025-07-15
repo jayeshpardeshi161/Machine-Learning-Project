@@ -95,3 +95,11 @@ credit-card-fraud-detection/
 ├── credit_card_model.pkl      # Trained model
 ├── README.md                  # Project documentation
 └── requirements.txt           # Python dependencies
+
+---
+
+## 🔗 Author
+ 
+📧 [jayeshpardeshi161@gmail.com]  
+📌 LinkedIn: [] 
+
