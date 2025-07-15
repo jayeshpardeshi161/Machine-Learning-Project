@@ -1,6 +1,8 @@
 # 💳 Credit Card Fraud Detection using Machine Learning
 
-This project focuses on detecting fraudulent credit card transactions using machine learning techniques. The dataset used is highly imbalanced, and several methods such as undersampling, oversampling (SMOTE), and different classifiers were applied to build a reliable fraud detection system.
+This project focuses on detecting fraudulent credit card transactions using machine learning techniques. 
+The dataset used is highly imbalanced, and several methods such as undersampling, oversampling (SMOTE), and different classifiers were applied to build a reliable fraud detection system.
+Built an interactive **Streamlit app** for real-time predictions with Python.
 
 ## 🔍 Problem Statement
 Credit card fraud is a growing problem in the financial world. The goal of this project is to accurately classify transactions as fraudulent or legitimate.
@@ -219,7 +221,8 @@ The model (credit_card_model.pkl) is a pre-trained machine learning model using 
 
 python
 
-📌 Step-by-step Explanation (with reasons):
+📌 Step-by-step Explanation ( Q kiya? with reasons ):
+
 1. Dataset Load & Initial Exploration
 
 import pandas as pd
@@ -233,7 +236,6 @@ data.tail()
 
 🔹 Q kiya? Saare columns properly dekh sakein, isliye max_columns None kiya, aur tail() se last rows dekhi.
 
-python
 
 data.shape
 print("Number of columns: {}".format(data.shape[1]))
