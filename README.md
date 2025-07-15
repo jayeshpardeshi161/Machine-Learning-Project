@@ -99,7 +99,7 @@ credit-card-fraud-detection/
 ---
 
 ## 🔗 Author
- 
-📧 [jayeshpardeshi161@gmail.com]  
-📌 LinkedIn: [] 
 
+**Your Name**  
+📧 jayeshpardeshi161@gmail.com
+📌 LinkedIn: [Profile URL]  
