@@ -129,6 +129,10 @@ This is a Streamlit-based web application that uses a machine learning model to 
 bash
 pip install -r requirements.txt
 
+Run the App
+bash
+
+streamlit run app.py
 The app will open in your browser at http://localhost:8501.
 
 📁 Project Structure
