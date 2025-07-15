@@ -100,6 +100,6 @@ credit-card-fraud-detection/
 
 ## 🔗 Author
 
-**Your Name**  
+  
 📧 jayeshpardeshi161@gmail.com
 📌 LinkedIn: [Profile URL]  
