@@ -162,12 +162,6 @@ This is a Streamlit-based web application that uses a machine learning model to 
 
 ---
 
-## 📷 Screenshots
-
-<img width="1187" height="667" alt="Electric_Vehicle _Analysis _Dashboard" src="https://github.com/user-attachments/assets/4c19b993-8546-4dcb-9549-7bcaa296e790" />
-
----
-
 🔧 How to Use This App
 Step 1: Save Files
 Save the above code as app.py.
