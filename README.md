@@ -366,19 +366,19 @@ else:
 
 ---
 
-✅ Summary:
+***✅ Summary:***
+
 Ye pura process kr ke credit card fraud detection ke liye machine learning model banaya, train kiya, aur optimize kar ke –
 imbalance handle karte hue, models compare karke, aur best model ko save karke prediction Kiya.
 
 ---
 
-## 📷 Images
-
-
+## 📜 License
+This project is licensed under the MIT License.
 
 ---
 
 ## 🔗 Author
 
-📧 jayeshpardeshi161@gmail.com
+📧 Gmail:[jayeshpardeshi161@gmail.com]
 📌 LinkedIn: [Profile URL]  
