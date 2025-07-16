@@ -374,15 +374,7 @@ imbalance handle karte hue, models compare karke, aur best model ko save karke p
 
 ## 📷 Images
 
-<img width="1794" height="952" alt="Screenshots - Streamlit App 1" src="https://github.com/user-attachments/assets/59ba9a15-84c4-432e-b38d-2c2733e9f9ea" />
-
-<img width="1719" height="852" alt="Screenshots - Streamlit App 2" src="https://github.com/user-attachments/assets/8efa2c04-8d78-434f-ba2a-834c128c62a2" />
-
-<img width="1775" height="850" alt="Screenshots - Streamlit App 3" src="https://github.com/user-attachments/assets/e6f9582d-d7fb-4c4d-b5ea-e114b9c3f7bb" />
-
-<img width="1607" height="375" alt="Screenshots - Streamlit App 4" src="https://github.com/user-attachments/assets/31f08438-253e-4deb-afbd-cd3e37674b02" />
-
-<img width="1792" height="1032" alt="Screenshots - Streamlit App" src="https://github.com/user-attachments/assets/c57b352a-9d68-48b7-ac20-5c120c4afaaf" />
+<img width="1794" height="952" alt="Image" src="https://github.com/user-attachments/assets/e002d266-a146-4644-b152-e3b7f9109e10" />
 
 
 ---
