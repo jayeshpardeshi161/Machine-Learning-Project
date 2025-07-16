@@ -162,7 +162,7 @@ This is a Streamlit-based web application that uses a machine learning model to 
 
 ---
 
-## ✅ streamlit app.py Screenshots Preview
+## ✅ Screenshots Preview
 
 ![alt text](<Screenshots - Streamlit App 1-1.PNG>)
     
@@ -365,14 +365,6 @@ else:
 ✅ Summary:
 Ye pura process kr ke credit card fraud detection ke liye machine learning model banaya, train kiya, aur optimize kar ke –
 imbalance handle karte hue, models compare karke, aur best model ko save karke prediction Kiya.
-
----
-✅ streamlit app.py Screenshots Preview
-
-
-<img width="1794" height="952" alt="Screenshots - Streamlit App 1" src="https://github.com/user-attachments/assets/a663ea30-024c-40f8-8bb3-c0eb1a43db82" />
-
-
 
 
 ---
