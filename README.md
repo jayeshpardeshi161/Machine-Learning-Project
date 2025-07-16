@@ -374,7 +374,6 @@ imbalance handle karte hue, models compare karke, aur best model ko save karke p
 
 ## 📷 Images
 
-<img width="1794" height="952" alt="Image" src="https://github.com/user-attachments/assets/e002d266-a146-4644-b152-e3b7f9109e10" />
 
 
 ---
