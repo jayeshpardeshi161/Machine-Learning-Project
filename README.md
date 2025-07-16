@@ -360,7 +360,8 @@ imbalance handle karte hue, models compare karke, aur best model ko save karke p
 ---
 ✅ streamlit app.py Screenshots Preview
 
-<img width="1794" height="952" alt="Screenshots - Streamlit App 1" src="https://github.com/user-attachments/assets/90ccf653-306e-48bd-9300-88459bb7fa78" />
+
+<img width="1794" height="952" alt="Screenshots - Streamlit App 1" src="https://github.com/user-attachments/assets/a663ea30-024c-40f8-8bb3-c0eb1a43db82" />
 
 
 
