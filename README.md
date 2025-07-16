@@ -161,6 +161,15 @@ This is a Streamlit-based web application that uses a machine learning model to 
 - Built with Python and Streamlit
 
 ---
+
+## ✅ streamlit app.py Screenshots Preview
+
+![alt text](<Screenshots - Streamlit App 1-1.PNG>)
+    
+![alt text](<Screenshots - Streamlit App.PNG>) ![alt text](<Screenshots - Streamlit App 2.PNG>) ![alt text](<Screenshots - Streamlit App 3.PNG>) ![alt text](<Screenshots - Streamlit App 4.PNG>)
+
+---
+
 🔧 How to Use This App
 Step 1: Save Files
 Save the above code as app.py.
