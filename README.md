@@ -78,10 +78,9 @@ Input:
 Output:
 "✅ Normal Transaction" or "⚠️ Fraudulent Transaction"
 
-
 ---
 
-🧠 Learnings
+## 🧠 Learnings
 Handling highly imbalanced datasets
 
 Model evaluation beyond just accuracy
@@ -92,7 +91,7 @@ Importance of precision & recall in fraud detection
 
 ---
 
-📦 Folder Structure
+## 📦 Folder Structure
 bash
 
 credit-card-fraud-detection/
@@ -105,7 +104,7 @@ credit-card-fraud-detection/
 
 ---
 
-✅ app.py Code
+## ✅ app.py Code
 Python
 # app.py
 
@@ -144,8 +143,7 @@ if st.button("🔍 Predict"):
 
 ---
 
-
-✅ 1. requirements.txt
+## ✅ 1. requirements.txt
 
 streamlit
 joblib
@@ -154,7 +152,7 @@ scikit-learn
 
 ---
 
-✅ 2. README.md
+## ✅ 2. README.md
 
 # 💳 Credit Card Fraud Detection App
 
@@ -228,16 +226,15 @@ scikit-learn
 🧠 Model Info
 The model (credit_card_model.pkl) is a pre-trained machine learning model using scikit-learn. If you don't have it, you need to train and export one.
 
-
 ---
 
-✅ Jupyter Code
+***✅ Jupyter Code***
 
 python
 
-📌 Step-by-step Explanation ( Q kiya? with reasons ):
+## 📌 Step-by-step Explanation ( Q kiya? with reasons ):
 
-1. Dataset Load & Initial Exploration
+***1. Dataset Load & Initial Exploration***
 
 import pandas as pd
 data = pd.read_csv("creditcard.csv")
@@ -262,27 +259,27 @@ data.isnull().sum()
 
 🔹 Q kiya? Data types aur null values check karne ke liye. Ye ensure karta hai ki missing values hain ya nahi.
 
-2. Feature Scaling
+***2. Feature Scaling***
 
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
 data['Amount'] = sc.fit_transform(pd.DataFrame(data['Amount']))
 🔹 Q kiya? Amount column ko scale kiya ja raha hai kyunki machine learning models scale-sensitive hote hain.
 
-3. Drop Unnecessary Column
+***3. Drop Unnecessary Column***
 
 data = data.drop(['Time'], axis=1)
 
 🔹 Q kiya? 'Time' column model ke liye relevant nahi tha, isliye remove kiya.
 
-4. Duplicate Check & Removal
+***4. Duplicate Check & Removal***
 
 data.duplicated().any()
 data = data.drop_duplicates()
 
 🔹 Q kiya? Duplicate rows prediction ko mislead kar sakti hain, isliye unhe remove kiya.
 
-5. Class Imbalance Analysis
+***5. Class Imbalance Analysis***
 
 data['Class'].value_counts()
 
@@ -293,7 +290,7 @@ plt.show()
 
 🔹 Q kiya? Visual check kiya imbalance ko plot kar ke.
 
-6. Data Split for Training
+***6. Data Split for Training***
 
 X = data.drop('Class', axis=1)
 y = data['Class']
@@ -302,7 +299,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 🔹 Q kiya? Features aur label ko alag kiya aur data ko training/testing sets me split kiya.
 
-7. Initial Model Training (Imbalanced Data)
+***7. Initial Model Training (Imbalanced Data)***
 
 classifier = {
     "Logistic Regression": LogisticRegression(),
@@ -318,7 +315,7 @@ for name, clf in classifier.items():
 
 🔹 Q kiya? Models ko train kiya aur evaluate kiya unke performance metrics se.
 
-8. Undersampling (Class Balance Karna)
+***8. Undersampling (Class Balance Karna)***
 
 normal = data[data['Class']==0]
 fraud = data[data['Class']==1]
@@ -327,21 +324,21 @@ new_data = pd.concat([normal_sample, fraud], ignore_index=True)
 
 🔹 Q kiya? Dataset me se legitimate transactions ka ek chhota subset liya taaki fraud aur non-fraud ka balance ho sake (undersampling).
 
-9. Model Training on Undersampled Data
+***9. Model Training on Undersampled Data***
 
 X_train, X_test, y_train, y_test = train_test_split(...)
 # Same training loop
 
 🔹 Q kiya? Balanced data par model train karne se model fairness improve hoti hai.
 
-10. Oversampling using SMOTE
+***10. Oversampling using SMOTE***
 
 from imblearn.over_sampling import SMOTE
 X_res, y_res = SMOTE().fit_resample(X, y)
 
 🔹 Q kiya? Minority class (fraud) ke synthetic samples generate kiye taaki imbalance ko fix kiya ja sake.
 
-11. Model Training on Oversampled Data
+***11. Model Training on Oversampled Data***
 
 🔹 Q kiya? SMOTE ke baad models ko dobara train kiya taaki better accuracy mil sake.
 
@@ -353,7 +350,7 @@ joblib.dump(dtc, "credit_card_model.pkl")
 
 🔹 Q kiya? Trained model ko save kiya future use ke liye, bina dobara train kiye.
 
-13. Prediction on New Sample
+***13. Prediction on New Sample***
 
 model = joblib.load("credit_card_model.pkl")
 pred = model.predict(df_input)
@@ -377,26 +374,15 @@ imbalance handle karte hue, models compare karke, aur best model ko save karke p
 
 ## 📷 Images
 
-<img width="1794" height="952" alt="Screenshots - Streamlit App 1" src="https://github.com/user-attachments/assets/af42367b-8836-480f-97ee-590a4cbfb649" />
+<img width="1794" height="952" alt="Screenshots - Streamlit App 1" src="https://github.com/user-attachments/assets/59ba9a15-84c4-432e-b38d-2c2733e9f9ea" />
 
+<img width="1719" height="852" alt="Screenshots - Streamlit App 2" src="https://github.com/user-attachments/assets/8efa2c04-8d78-434f-ba2a-834c128c62a2" />
 
+<img width="1775" height="850" alt="Screenshots - Streamlit App 3" src="https://github.com/user-attachments/assets/e6f9582d-d7fb-4c4d-b5ea-e114b9c3f7bb" />
 
-<img width="1719" height="852" alt="Screenshots - Streamlit App 2" src="https://github.com/user-attachments/assets/5c2ffa4c-b22b-4cf3-b0e9-575fe14fa98a" />
+<img width="1607" height="375" alt="Screenshots - Streamlit App 4" src="https://github.com/user-attachments/assets/31f08438-253e-4deb-afbd-cd3e37674b02" />
 
-
-
-
-<img width="1775" height="850" alt="Screenshots - Streamlit App 3" src="https://github.com/user-attachments/assets/d3d41aa0-da6a-4bd9-a211-89227d50e6e7" />
-
-
-
-
-<img width="1607" height="375" alt="Screenshots - Streamlit App 4" src="https://github.com/user-attachments/assets/f196fa20-f5b7-4f9b-9e57-a63cd8f43bcf" />
-
-
-
-<img width="1792" height="1032" alt="Screenshots - Streamlit App" src="https://github.com/user-attachments/assets/0b3a3aad-b9b8-4f91-b5fa-b74bea36c979" />
-
+<img width="1792" height="1032" alt="Screenshots - Streamlit App" src="https://github.com/user-attachments/assets/c57b352a-9d68-48b7-ac20-5c120c4afaaf" />
 
 
 ---
