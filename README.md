@@ -78,6 +78,9 @@ Input:
 Output:
 "✅ Normal Transaction" or "⚠️ Fraudulent Transaction"
 
+
+---
+
 🧠 Learnings
 Handling highly imbalanced datasets
 
@@ -86,6 +89,8 @@ Model evaluation beyond just accuracy
 Real-world deployment with Streamlit
 
 Importance of precision & recall in fraud detection
+
+---
 
 📦 Folder Structure
 bash
@@ -98,8 +103,8 @@ credit-card-fraud-detection/
 ├── README.md                  # Project documentation
 └── requirements.txt           # Python dependencies
 
-
 ---
+
 ✅ app.py Code
 Python
 # app.py
@@ -137,6 +142,8 @@ if st.button("🔍 Predict"):
     else:
         st.error("⚠️ This is a **Fraudulent Transaction**")
 
+---
+
 
 ✅ 1. requirements.txt
 
@@ -144,6 +151,8 @@ streamlit
 joblib
 numpy
 scikit-learn
+
+---
 
 ✅ 2. README.md
 
@@ -196,6 +205,8 @@ bash
 streamlit run app.py
 The app will open in your browser at http://localhost:8501.
 
+---
+
 📁 Project Structure
 
 credit_card_fraud_app/
@@ -217,7 +228,9 @@ scikit-learn
 🧠 Model Info
 The model (credit_card_model.pkl) is a pre-trained machine learning model using scikit-learn. If you don't have it, you need to train and export one.
 
+
 ---
+
 ✅ Jupyter Code
 
 python
@@ -354,12 +367,40 @@ else:
 
 🔹 Q kiya? Predict kiya ki transaction fraudulent hai ya nahi.
 
+---
+
 ✅ Summary:
 Ye pura process kr ke credit card fraud detection ke liye machine learning model banaya, train kiya, aur optimize kar ke –
 imbalance handle karte hue, models compare karke, aur best model ko save karke prediction Kiya.
 
+---
+
+## 📷 Images
+
+<img width="1794" height="952" alt="Screenshots - Streamlit App 1" src="https://github.com/user-attachments/assets/af42367b-8836-480f-97ee-590a4cbfb649" />
+
+
+
+<img width="1719" height="852" alt="Screenshots - Streamlit App 2" src="https://github.com/user-attachments/assets/5c2ffa4c-b22b-4cf3-b0e9-575fe14fa98a" />
+
+
+
+
+<img width="1775" height="850" alt="Screenshots - Streamlit App 3" src="https://github.com/user-attachments/assets/d3d41aa0-da6a-4bd9-a211-89227d50e6e7" />
+
+
+
+
+<img width="1607" height="375" alt="Screenshots - Streamlit App 4" src="https://github.com/user-attachments/assets/f196fa20-f5b7-4f9b-9e57-a63cd8f43bcf" />
+
+
+
+<img width="1792" height="1032" alt="Screenshots - Streamlit App" src="https://github.com/user-attachments/assets/0b3a3aad-b9b8-4f91-b5fa-b74bea36c979" />
+
+
 
 ---
+
 ## 🔗 Author
 
 📧 jayeshpardeshi161@gmail.com
