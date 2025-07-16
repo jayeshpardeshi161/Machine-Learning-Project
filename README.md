@@ -102,9 +102,12 @@ credit-card-fraud-detection/
 ├── README.md                  # Project documentation
 └── requirements.txt           # Python dependencies
 
+
 ---
 
+
 ## ✅ app.py Code
+
 Python
 # app.py
 
@@ -234,7 +237,7 @@ python
 
 ## 📌 Step-by-step Explanation ( Q kiya? with reasons ):
 
-***1. Dataset Load & Initial Exploration***
+**1. Dataset Load & Initial Exploration**
 
 import pandas as pd
 data = pd.read_csv("creditcard.csv")
@@ -259,27 +262,27 @@ data.isnull().sum()
 
 🔹 Q kiya? Data types aur null values check karne ke liye. Ye ensure karta hai ki missing values hain ya nahi.
 
-***2. Feature Scaling***
+**2. Feature Scaling**
 
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
 data['Amount'] = sc.fit_transform(pd.DataFrame(data['Amount']))
 🔹 Q kiya? Amount column ko scale kiya ja raha hai kyunki machine learning models scale-sensitive hote hain.
 
-***3. Drop Unnecessary Column***
+**3. Drop Unnecessary Column**
 
 data = data.drop(['Time'], axis=1)
 
 🔹 Q kiya? 'Time' column model ke liye relevant nahi tha, isliye remove kiya.
 
-***4. Duplicate Check & Removal***
+**4. Duplicate Check & Removal**
 
 data.duplicated().any()
 data = data.drop_duplicates()
 
 🔹 Q kiya? Duplicate rows prediction ko mislead kar sakti hain, isliye unhe remove kiya.
 
-***5. Class Imbalance Analysis***
+**5. Class Imbalance Analysis**
 
 data['Class'].value_counts()
 
@@ -290,7 +293,7 @@ plt.show()
 
 🔹 Q kiya? Visual check kiya imbalance ko plot kar ke.
 
-***6. Data Split for Training***
+**6. Data Split for Training**
 
 X = data.drop('Class', axis=1)
 y = data['Class']
@@ -299,7 +302,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 🔹 Q kiya? Features aur label ko alag kiya aur data ko training/testing sets me split kiya.
 
-***7. Initial Model Training (Imbalanced Data)***
+**7. Initial Model Training (Imbalanced Data)**
 
 classifier = {
     "Logistic Regression": LogisticRegression(),
@@ -315,7 +318,7 @@ for name, clf in classifier.items():
 
 🔹 Q kiya? Models ko train kiya aur evaluate kiya unke performance metrics se.
 
-***8. Undersampling (Class Balance Karna)***
+**8. Undersampling (Class Balance Karna)**
 
 normal = data[data['Class']==0]
 fraud = data[data['Class']==1]
@@ -324,25 +327,25 @@ new_data = pd.concat([normal_sample, fraud], ignore_index=True)
 
 🔹 Q kiya? Dataset me se legitimate transactions ka ek chhota subset liya taaki fraud aur non-fraud ka balance ho sake (undersampling).
 
-***9. Model Training on Undersampled Data***
+**9. Model Training on Undersampled Data**
 
 X_train, X_test, y_train, y_test = train_test_split(...)
 # Same training loop
 
 🔹 Q kiya? Balanced data par model train karne se model fairness improve hoti hai.
 
-***10. Oversampling using SMOTE***
+**10. Oversampling using SMOTE**
 
 from imblearn.over_sampling import SMOTE
 X_res, y_res = SMOTE().fit_resample(X, y)
 
 🔹 Q kiya? Minority class (fraud) ke synthetic samples generate kiye taaki imbalance ko fix kiya ja sake.
 
-***11. Model Training on Oversampled Data***
+**11. Model Training on Oversampled Data**
 
 🔹 Q kiya? SMOTE ke baad models ko dobara train kiya taaki better accuracy mil sake.
 
-12. Model Saving
+**12. Model Saving**
 
 dtc = DecisionTreeClassifier()
 dtc.fit(X_res, y_res)
@@ -350,7 +353,7 @@ joblib.dump(dtc, "credit_card_model.pkl")
 
 🔹 Q kiya? Trained model ko save kiya future use ke liye, bina dobara train kiye.
 
-***13. Prediction on New Sample***
+**13. Prediction on New Sample**
 
 model = joblib.load("credit_card_model.pkl")
 pred = model.predict(df_input)
@@ -366,7 +369,7 @@ else:
 
 ---
 
-***✅ Summary:***
+## ✅ Summary:
 
 Ye pura process kr ke credit card fraud detection ke liye machine learning model banaya, train kiya, aur optimize kar ke –
 imbalance handle karte hue, models compare karke, aur best model ko save karke prediction Kiya.
