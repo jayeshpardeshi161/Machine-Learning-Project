@@ -162,7 +162,9 @@ This is a Streamlit-based web application that uses a machine learning model to 
 
 ---
 
-## ✅ Screenshots Preview
+## 📷 Screenshots
+
+![Dashboard Preview](images/Electric_Vehicle _Analysis _Dashboard.png)
 
 ![alt text](<Screenshots - Streamlit App 1-1.PNG>)
     
