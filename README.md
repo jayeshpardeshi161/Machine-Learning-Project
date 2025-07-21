@@ -85,3 +85,17 @@ Real-world deployment with Streamlit
 
 Importance of precision & recall in fraud detection
 
+---
+
+## 🔗 License
+
+MIT License © 2025 [Jayesh Pardeshi]
+
+Copyright (c) [2025] [Jayesh Pardeshi]
+
+## 🔗 Author
+ 
+📧 Gmail	:[jayeshpardeshi161@gmail.com]  
+📌 LinkedIn:[] 
+📌 Portfolio:[]
+
