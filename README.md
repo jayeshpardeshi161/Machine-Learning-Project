@@ -91,8 +91,6 @@ Importance of precision & recall in fraud detection
 
 MIT License © 2025 [Jayesh Pardeshi]
 
-Copyright (c) [2025] [Jayesh Pardeshi]
-
 ## 🔗 Author
  
 📧 Gmail	:[jayeshpardeshi161@gmail.com]  
