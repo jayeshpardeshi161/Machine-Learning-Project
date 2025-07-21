@@ -64,6 +64,18 @@ Credit card fraud is a growing problem in the financial world. The goal of this 
 
 ---
 
+## 🔗 License
+
+MIT License © 2025 [Jayesh Pardeshi]
+
+## 🔗 Contact
+
+📧 Gmail	:[jayeshpardeshi161@gmail.com]  
+📌 LinkedIn:[] 
+📌 Portfolio:[]
+
+---
+
 ## 🚀 Streamlit App
 
 Run locally:
@@ -87,13 +99,5 @@ Importance of precision & recall in fraud detection
 
 ---
 
-## 🔗 License
 
-MIT License © 2025 [Jayesh Pardeshi]
-
-## 🔗 Author
- 
-📧 Gmail	:[jayeshpardeshi161@gmail.com]  
-📌 LinkedIn:[] 
-📌 Portfolio:[]
 
