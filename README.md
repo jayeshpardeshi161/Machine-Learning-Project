@@ -88,6 +88,20 @@ Credit card fraud is a growing concern in the financial world. Fraudulent transa
 
 ---
 
+## 🔗 License
+
+MIT License © 2025 [Jayesh Pardeshi]
+
+---
+
+## 🔗 Contact
+
+📧 Gmail	:[jayeshpardeshi161@gmail.com]  
+📌 LinkedIn:[] 
+📌 Portfolio:[]
+
+---
+
 ## 🌐 Streamlit App
 
 An interactive web application built using **Streamlit**.
@@ -98,47 +112,19 @@ An interactive web application built using **Streamlit**.
 - Fraud probability display
 - Model caching and feature validation
 
+
 ### 📁 File: `app.py`
 
 To run the app locally:
 
 ```bash
 streamlit run app.py
-
----
-
-## 🔗 License
-
-MIT License © 2025 [Jayesh Pardeshi]
-
-## 🔗 Contact
-
-📧 Gmail	:[jayeshpardeshi161@gmail.com]  
-📌 LinkedIn:[] 
-📌 Portfolio:[]
-
----
-
 ## 🚀 Streamlit App
 
 Run locally:
 
 ```bash
 streamlit run app.py
-Input:
-29 transaction feature values (V1 to V28 + Amount)
-
-Output:
-"✅ Normal Transaction" or "⚠️ Fraudulent Transaction"
-
-🧠 Learnings
-Handling highly imbalanced datasets
-
-Model evaluation beyond just accuracy
-
-Real-world deployment with Streamlit
-
-Importance of precision & recall in fraud detection
 
 ---
 
