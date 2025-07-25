@@ -114,9 +114,9 @@ An interactive web application built using **Streamlit**.
 
 ### 📁 File: `app.py`
 
-To run the app locally:
+### To run the app locally:
 
-```bash
+####  ```bash
 streamlit run app.py
 
 ---
