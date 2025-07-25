@@ -1,67 +1,109 @@
 # 💳 Credit Card Fraud Detection using Machine Learning
 
-This project focuses on detecting fraudulent credit card transactions using machine learning techniques. The dataset used is highly imbalanced, and several methods such as undersampling, oversampling (SMOTE), and different classifiers were applied to build a reliable fraud detection system.
-
-### 🔍 Problem Statement
-Credit card fraud is a growing problem in the financial world. The goal of this project is to accurately classify transactions as fraudulent or legitimate.
+This project focuses on detecting fraudulent credit card transactions using machine learning techniques. The dataset used is highly imbalanced, and several methods such as **SMOTE oversampling**, **Random Forest classification**, and **data preprocessing pipelines** were applied to build a robust fraud detection system. A **Streamlit web application** is also included for real-time prediction and demonstration.
 
 ---
 
-### 📁 Dataset
+## 📌 Table of Contents
+
+- [Problem Statement](#problem-statement)
+- [Project Goals](#project-goals)
+- [Dataset Overview](#dataset-overview)
+- [Approach](#approach)
+- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+- [Modeling](#modeling)
+- [Evaluation Metrics](#evaluation-metrics)
+- [Streamlit App](#streamlit-app)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Key Findings](#key-findings)
+- [Conclusion](#conclusion)
+- [Future Work](#future-work)
+- [License](#license)
+
+---
+
+## ❓ Problem Statement
+
+Credit card fraud is a growing concern in the financial world. Fraudulent transactions are rare but cause significant financial losses. The challenge lies in accurately identifying fraud while minimizing false positives and negatives in a heavily imbalanced dataset.
+
+---
+
+## 🎯 Project Goals
+
+- Build an accurate machine learning pipeline for binary classification (Fraud vs. Normal)
+- Handle data imbalance effectively using SMOTE
+- Deploy the model using Streamlit for interactive predictions
+
+---
+
+## 📊 Dataset Overview
 
 - **Source**: [Kaggle - Credit Card Fraud Detection](https://www.kaggle.com/mlg-ulb/creditcardfraud)
+- **Samples**: 284,807 transactions
 - **Features**:
-  - 30 total features (`V1` to `V28`, `Amount`, `Time`)
-  - `Class` column: `0` = Normal, `1` = Fraud
+  - `V1` to `V28`: PCA-transformed features (anonymized)
+  - `Amount`: Transaction amount
+  - `Time`: Time since first transaction
+  - `Class`: Target variable (0 = Normal, 1 = Fraud)
 
 ---
 
-### ⚙️ Technologies Used
+## 🧪 Approach
 
-- Python
-- Pandas, NumPy, Scikit-learn
-- Matplotlib, Seaborn
-- imbalanced-learn (SMOTE)
-- Streamlit (for model deployment)
-- Joblib (for model serialization)
-
----
-
-### 🧪 Model Building Steps
-
-1. **Data Preprocessing**
-   - Scaled `Amount` feature using `StandardScaler`
-   - Dropped `Time` column and removed duplicate rows
-
-2. **Class Imbalance Handling**
-   - Visualized imbalance (`Class` 0 >> `Class` 1)
-   - Applied:
-     - **Undersampling** (limited normal transactions)
-     - **Oversampling** with **SMOTE**
-
-3. **Model Training & Evaluation**
-   - Trained `Logistic Regression` and `Decision Tree` classifiers
-   - Evaluated using:
-     - Accuracy
-     - Precision
-     - Recall
-     - F1 Score
-
-4. **Model Deployment**
-   - Final model saved using `joblib`
-   - Built an interactive **Streamlit app** for real-time predictions
+1. Load and explore the dataset
+2. Perform data preprocessing and check for missing values
+3. Analyze class imbalance and apply SMOTE to balance the training set
+4. Train a `RandomForestClassifier` within a `Pipeline` (including scaling)
+5. Evaluate the model using ROC AUC and classification metrics
+6. Save the trained model with `joblib`
+7. Build and deploy a Streamlit app for real-time predictions
 
 ---
 
+## 📊 Exploratory Data Analysis (EDA)
 
-## 📊 Results
+- Distribution of normal vs. fraud transactions
+- Heatmap of feature correlations
+- Boxplot analysis of `Amount` per class
+- Feature inspection and identification of outliers
 
-| Model               | Precision | Recall | F1 Score |
-|--------------------|-----------|--------|----------|
-| Logistic Regression | 0.94      | 0.88   | 0.91     |
-| Decision Tree       | 0.96      | 0.92   | 0.94     |
+---
 
-> *(Metrics may vary slightly depending on sampling and random state)*
+## 🤖 Modeling
+
+- **Model**: Random Forest Classifier
+- **Pipeline Steps**:
+  - `StandardScaler` for feature normalization
+  - `SMOTE` for oversampling the minority class
+  - Random Forest with 100 trees
+
+---
+
+## 📈 Evaluation Metrics
+
+- **Classification Report**: Precision, Recall, F1-Score
+- **Confusion Matrix**: True/False Positives/Negatives
+- **ROC AUC Score**: Evaluates model’s class separation capability
+
+---
+
+## 🌐 Streamlit App
+
+An interactive web application built using **Streamlit**.
+
+### 🔧 Features:
+- Manual input or use sample transactions
+- Real-time prediction of transaction status
+- Fraud probability display
+- Model caching and feature validation
+
+### 📁 File: `app.py`
+
+To run the app locally:
+
+```bash
+streamlit run app.py
 
 ---
 
