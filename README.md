@@ -101,8 +101,7 @@ MIT License © 2025 [Jayesh Pardeshi]
 📌 Portfolio:[]
 
 ---
-
-## 🌐 Streamlit App
+## 🚀 Streamlit App
 
 An interactive web application built using **Streamlit**.
 
@@ -116,12 +115,6 @@ An interactive web application built using **Streamlit**.
 ### 📁 File: `app.py`
 
 To run the app locally:
-
-```bash
-streamlit run app.py
-## 🚀 Streamlit App
-
-Run locally:
 
 ```bash
 streamlit run app.py
