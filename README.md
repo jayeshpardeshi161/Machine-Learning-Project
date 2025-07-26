@@ -103,7 +103,9 @@ MIT License © 2025 [Jayesh Pardeshi]
 ---
 
 ## ✅ What I Did
+
 ***Environment Setup***
+
 To begin this project, I used Anaconda Navigator to launch Jupyter Notebook, a popular IDE for data science tasks. Anaconda provides a robust Python environment with pre-installed libraries, which made it efficient to manage dependencies and work interactively with code.
 
 **Step 1: Import Required Libraries**
@@ -138,6 +140,7 @@ Using Pandas, the dataset is read from a CSV file and loaded into a DataFrame na
 | `print("✅ Dataset loaded:", df.shape)` | Print confirmation along with the shape of the dataset     |
 ***Output:***
 ✅ Dataset loaded: (20000, 31)
+
 ***Explanation:***
 The dataset contains 20,000 rows and 31 columns.
 Each row represents a credit card transaction, and the columns include features extracted from the transaction along with a label indicating whether it is fraudulent (1) or not (0).
@@ -154,6 +157,7 @@ The following Python commands were used for preliminary inspection:
 | `print(df.shape)`          | Print the number of rows and columns in the dataset                 |
 | `print(df.info())`         | Show datatypes and count of non-null values for each column         |
 | `print(df.isnull().sum())` | Check for missing values in each column                             |
+
 ***Insights Gained:***
 The dataset contains 20,000 records and 31 columns.
 All features are numerical, and most have been anonymized (e.g., V1, V2, ..., V28), with the exception of:
@@ -231,7 +235,8 @@ In this step, I: Dropped irrelevant or non-predictive columns.Isolated the targe
 | ---------------------------------------- | ------------------------------------------------------------------- |
 | `X = df.drop(columns=["Time", "Class"])` | Drop the `Time` column (not useful) and the `Class` column (target) |
 | `y = df["Class"]`                        | Define the target variable (`1` = fraud, `0` = non-fraud)           |
-Rationale:
+
+***Rationale:***
 
 Time is often not informative for fraud detection in this anonymized dataset, and including it may introduce noise.
 Class is the label we're trying to predict, so it must be separated from the features.
@@ -250,15 +255,18 @@ To maintain the class imbalance proportion (critical in fraud detection), I used
 | `print("Before SMOTE:")`                                | Print heading to indicate pre-SMOTE class distribution                        |
 | `print(" - Fraud count:", sum(y_train == 1))`           | Show number of fraud cases in the training set                                |
 | `print(" - Normal count:", sum(y_train == 0))`          | Show number of normal transactions in the training set                        |
+
 ***Output:***
 Before SMOTE:
  - Fraud count: 51
  - Normal count: 15949
-Insights:
+
+***Insights:***
 
 The training set retains the severe class imbalance seen in the full dataset.
 Only 51 fraud cases are present in the training data, compared to 15,949 normal transactions.
 This imbalance will be addressed in the next step using SMOTE (Synthetic Minority Over-sampling Technique) to prevent the model from being biased toward the majority class.
+
 ⚠️ Performing train-test split before applying SMOTE is important to avoid data leakage and ensure valid model evaluation.
 
 **⚖️ Step 9: Handle Class Imbalance Using SMOTE**
@@ -272,16 +280,18 @@ This technique helps balance the dataset and improves the model’s ability to d
 | `print("After SMOTE:")`                                           | Print heading to indicate post-SMOTE class distribution                        |
 | `print(" - Fraud count:", sum(y_resampled == 1))`                 | Display updated number of fraud cases after oversampling                       |
 | `print(" - Normal count:", sum(y_resampled == 0))`                | Display number of normal transactions after oversampling (balanced)            |
+
 ***Output:***
 After SMOTE:
  - Fraud count: 15949
  - Normal count: 15949
 
-Insights:
+***Insights:***
 
 SMOTE balanced the training data by increasing the fraud cases from 51 to 15,949, matching the number of normal transactions.
 This balanced dataset will help the model learn patterns from both classes equally, reducing bias toward the majority class.
 The test set remains untouched to provide a realistic evaluation of model performance on imbalanced real-world data.
+
 📌 SMOTE is applied only on the training set to prevent data leakage and maintain the integrity of the evaluation process.
 
 **🔧 Step 10: Create and Train Pipeline**
@@ -318,8 +328,11 @@ Printing detailed classification metrics such as precision, recall, and F1-score
 | `y_prob = pipeline.predict_proba(X_test)[:, 1]`          | Get predicted probabilities for the positive class (fraud)      |
 | `print("\n🔍 Classification Report:\n")`                 | Print a heading before the classification report                |
 | `print(classification_report(y_test, y_pred, digits=4))` | Display precision, recall, F1-score, and support for each class |
+
 ***Output:***
-🔍 Classification Report:
+
+***🔍 Classification Report:***
+
               precision    recall  f1-score   support
            0     0.9972    0.9995    0.9984      3987
            1     0.5000    0.1538    0.2353        13
@@ -327,7 +340,7 @@ Printing detailed classification metrics such as precision, recall, and F1-score
    macro avg     0.7486    0.5767    0.6168      4000
 weighted avg     0.9956    0.9968    0.9959      4000
 
-Insights:
+***Insights:***
 
 The model achieves high precision and recall for the majority class (non-fraud), reflecting its ability to correctly identify legitimate transactions.
 For the minority class (fraud), the precision is moderate (0.50), but the recall is low (0.1538), indicating many fraud cases are still missed.
@@ -353,7 +366,7 @@ False Negatives (fraud cases missed by the model).
 <img width="1189" height="846" alt="Confusion Matrix" src="https://github.com/user-attachments/assets/b6912d7e-ee47-42b4-959c-23a93908457a" />
 
 
-Purpose & Insight:
+***Purpose & Insight:***
 
 This visual helps identify where the model makes mistakes.
 It clearly shows the imbalance in detecting fraud (likely many false negatives).
@@ -367,11 +380,13 @@ Unlike accuracy, ROC AUC provides a threshold-independent evaluation metric and 
 | ------------------------------------------- | ------------------------------------------------------------- |
 | `roc_auc = roc_auc_score(y_test, y_prob)`   | Calculate the **ROC AUC** score using predicted probabilities |
 | `print(f"🧠 ROC AUC Score: {roc_auc:.4f}")` | Print the score with 4 decimal places for clarity             |
+
 ***Output:***
+
 🧠 ROC AUC Score: 0.6354
 ✅ Model saved as 'credit_card_model.pkl'
 
-Insight:
+***Insight:***
 
 A ROC AUC score of around 0.87 indicates that the model has a good ability to separate fraud from non-fraud cases, even if recall was low.
 This metric helps compensate for the misleading nature of accuracy in imbalanced datasets.
@@ -420,6 +435,7 @@ The model is safely loaded using joblib, and predictions are displayed with both
 ## ✅ Project Conclusion
 
 In this project, I developed a machine learning solution to detect fraudulent credit card transactions using a publicly available dataset. 
+
 My goal was to build an effective classification system that not only performs well on imbalanced data but is also deployable for real-world usage.
 
 I began by conducting thorough data exploration and preprocessing, including handling class imbalance using SMOTE and selecting appropriate features. 
