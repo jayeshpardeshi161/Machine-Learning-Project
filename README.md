@@ -417,7 +417,7 @@ I ensured the app provides a seamless interactive experience for testing credit 
 The app uses session state for input persistence and dynamic updates.
 The model is safely loaded using joblib, and predictions are displayed with both classification output and probability scores.
 
-**✅ Project Conclusion**
+## ✅ Project Conclusion
 
 In this project, I developed a machine learning solution to detect fraudulent credit card transactions using a publicly available dataset. 
 My goal was to build an effective classification system that not only performs well on imbalanced data but is also deployable for real-world usage.
@@ -436,11 +436,11 @@ This end-to-end pipeline—from data ingestion and model training to evaluation 
 
 ---
 
-## 🚀 Streamlit App
+**🚀 Streamlit App**
 
 An interactive web application built using **Streamlit**.
 
-### 🔧 Features:
+***🔧 Features:***
 - Manual input or use sample transactions
 - Real-time prediction of transaction status
 - Fraud probability display
@@ -449,9 +449,9 @@ An interactive web application built using **Streamlit**.
 
 ### 📁 File: `app.py`
 
-### To run the app locally:
+***To run the app locally:***
 
-####  ```bash
+***```bash***
 streamlit run app.py
 
 ---
