@@ -386,7 +386,11 @@ To preserve the trained pipeline (including preprocessing and model steps), I sa
 ***Output:***
 ✅ Model saved as 'credit_card_model.pkl'
 
-***✅ Project Status: I have successfully completed all the key stages of the credit card fraud detection project, including data preparation, modeling, evaluation, and deployment. The final model has been trained, validated, and saved for future use.***
+
+**✅ Project Status:** 
+
+I have successfully completed all the key stages of the credit card fraud detection project, including data preparation, modeling, evaluation, and deployment. The final model has been trained, validated, and saved for future use.
+
 
 **🖥️ Step 15: Build and Deploy a Streamlit Web App**
 
@@ -406,13 +410,14 @@ This allows users to input transaction data and receive real-time predictions on
 | **Error handling**                       | Displays warnings if the model file is missing or features are mismatched                                    |
 | **Educational note**                     | A disclaimer at the bottom explains that the model is trained on anonymized data for demo purposes           |
 
+
 ***🚀 App Deployment Status***
 
 I ensured the app provides a seamless interactive experience for testing credit card transactions.
 The app uses session state for input persistence and dynamic updates.
 The model is safely loaded using joblib, and predictions are displayed with both classification output and probability scores.
 
-## ✅ Project Conclusion
+**✅ Project Conclusion**
 
 In this project, I developed a machine learning solution to detect fraudulent credit card transactions using a publicly available dataset. 
 My goal was to build an effective classification system that not only performs well on imbalanced data but is also deployable for real-world usage.
