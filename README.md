@@ -101,6 +101,92 @@ MIT License © 2025 [Jayesh Pardeshi]
 📌 Portfolio:[]
 
 ---
+
+## ✅ What I Did
+***Environment Setup***
+To begin this project, I used Anaconda Navigator to launch Jupyter Notebook, a popular IDE for data science tasks. Anaconda provides a robust Python environment with pre-installed libraries, which made it efficient to manage dependencies and work interactively with code.
+
+***Step 1: Import Required Libraries***
+
+The first step in this machine learning project involved importing the necessary Python libraries. 
+These libraries cover a wide range of functionalities, including data manipulation, visualization, model building, evaluation, and handling class imbalance.
+
+Below is a detailed table of the libraries imported and their specific purpose within the project:
+| **Python Code**                                                                             | **Comments**                                                         |
+| ------------------------------------------------------------------------------------ | -------------------------------------------------------------------- |
+| `import pandas as pd`                                                                | For handling tabular data                                            |
+| `import numpy as np`                                                                 | For numerical computations                                           |
+| `from sklearn.model_selection import train_test_split`                               | For splitting dataset into training and test sets                    |
+| `from sklearn.ensemble import RandomForestClassifier`                                | Random Forest model for classification                               |
+| `from sklearn.pipeline import Pipeline`                                              | To create a machine learning pipeline                                |
+| `from sklearn.preprocessing import StandardScaler`                                   | To normalize/scale features                                          |
+| `from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score` | For evaluating the model (accuracy, confusion matrix, AUC-ROC, etc.) |
+| `from imblearn.over_sampling import SMOTE`                                           | For handling class imbalance by oversampling the minority class      |
+| `import joblib`                                                                      | To save (serialize) the trained model                                |
+| `import matplotlib.pyplot as plt`                                                    | For plotting graphs and visualizations                               |
+| `import seaborn as sns`                                                              | For enhanced visualizations (e.g., heatmaps, boxplots, etc.)         |
+
+***🔍 Step 2: Load Dataset***
+
+After importing the required libraries, the next step is to load the dataset into the environment. 
+The dataset used for this project is creditcard.csv, which contains anonymized credit card transactions labeled as fraudulent or legitimate.
+
+Using Pandas, the dataset is read from a CSV file and loaded into a DataFrame named df. This step is crucial for all downstream data preprocessing, analysis, and model development.
+| **Python Code**                        | **Comments**                                               |
+| -------------------------------------- | ---------------------------------------------------------- |
+| `df = pd.read_csv("creditcard.csv")`   | Load the dataset from the CSV file into a Pandas DataFrame |
+| `print("✅ Dataset loaded:", df.shape)` | Print confirmation along with the shape of the dataset     |
+***Output:***
+✅ Dataset loaded: (20000, 31)
+***Explanation:***
+The dataset contains 20,000 rows and 31 columns.
+Each row represents a credit card transaction, and the columns include features extracted from the transaction along with a label indicating whether it is fraudulent (1) or not (0).
+This step ensures that the data is successfully imported and ready for exploration and preprocessing in the next stages.
+
+***📊 Step 3: Initial Data Exploration***
+
+After successfully loading the dataset, the next step is to perform an initial exploration of the data. 
+This step provides a quick understanding of the dataset's structure, including its features, datatypes, presence of missing values, and general layout.
+The following Python commands were used for preliminary inspection:
+| **Python Code**            | **Comments**                                                        |
+| -------------------------- | ------------------------------------------------------------------- |
+| `print(df.head())`         | Display the first 5 rows of the dataset to understand its structure |
+| `print(df.shape)`          | Print the number of rows and columns in the dataset                 |
+| `print(df.info())`         | Show datatypes and count of non-null values for each column         |
+| `print(df.isnull().sum())` | Check for missing values in each column                             |
+***Insights Gained:***
+The dataset contains 20,000 records and 31 columns.
+All features are numerical, and most have been anonymized (e.g., V1, V2, ..., V28), with the exception of:
+Time – representing the time elapsed between transactions.
+Amount – transaction amount.
+Class – target variable (1 = fraud, 0 = non-fraud).
+No missing values were found in the dataset, indicating that no imputation or cleaning is necessary at this stage.
+
+***⚖️ Step 4: Explore Class Distribution (Understand the Class Imbalance)****
+
+Understanding the distribution of the target variable (Class) is a critical step in fraud detection problems. 
+This helps identify if there is a class imbalance, which is common in real-world fraud datasets where fraudulent transactions are rare compared to legitimate ones.
+
+The following code was used to examine and visualize the class distribution:
+| **Python Code**                         | **Comments**                                                       |
+| --------------------------------------- | ------------------------------------------------------------------ |
+| `print("Original class distribution:")` | Print a heading to indicate the start of class distribution output |
+| `print(df["Class"].value_counts())`     | Count the number of legitimate (0) and fraudulent (1) transactions |
+| `sns.countplot(x="Class", data=df)`     | Visualize the distribution using a bar plot                        |
+| `plt.title("Class Distribution")`       | Add a descriptive title to the plot                                |
+| `plt.show()`                            | Display the plot                                                   |
+***Output:***
+Original class distribution:
+0    19936
+1       64
+Name: count, dtype: int64
+<img width="1168" height="684" alt="Original class distribution" src="https://github.com/user-attachments/assets/061a92f9-b253-4d04-9334-774203ec2910" />
+
+
+
+
+---
+
 ## 🚀 Streamlit App
 
 An interactive web application built using **Streamlit**.
