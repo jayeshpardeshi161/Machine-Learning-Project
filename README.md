@@ -106,7 +106,7 @@ MIT License © 2025 [Jayesh Pardeshi]
 ***Environment Setup***
 To begin this project, I used Anaconda Navigator to launch Jupyter Notebook, a popular IDE for data science tasks. Anaconda provides a robust Python environment with pre-installed libraries, which made it efficient to manage dependencies and work interactively with code.
 
-***Step 1: Import Required Libraries***
+**Step 1: Import Required Libraries**
 
 The first step in this machine learning project involved importing the necessary Python libraries. 
 These libraries cover a wide range of functionalities, including data manipulation, visualization, model building, evaluation, and handling class imbalance.
@@ -126,7 +126,7 @@ Below is a detailed table of the libraries imported and their specific purpose w
 | `import matplotlib.pyplot as plt`                                                    | For plotting graphs and visualizations                               |
 | `import seaborn as sns`                                                              | For enhanced visualizations (e.g., heatmaps, boxplots, etc.)         |
 
-***🔍 Step 2: Load Dataset***
+**🔍 Step 2: Load Dataset**
 
 After importing the required libraries, the next step is to load the dataset into the environment. 
 The dataset used for this project is creditcard.csv, which contains anonymized credit card transactions labeled as fraudulent or legitimate.
@@ -143,7 +143,7 @@ The dataset contains 20,000 rows and 31 columns.
 Each row represents a credit card transaction, and the columns include features extracted from the transaction along with a label indicating whether it is fraudulent (1) or not (0).
 This step ensures that the data is successfully imported and ready for exploration and preprocessing in the next stages.
 
-***📊 Step 3: Initial Data Exploration***
+**📊 Step 3: Initial Data Exploration**
 
 After successfully loading the dataset, the next step is to perform an initial exploration of the data. 
 This step provides a quick understanding of the dataset's structure, including its features, datatypes, presence of missing values, and general layout.
@@ -162,7 +162,7 @@ Amount – transaction amount.
 Class – target variable (1 = fraud, 0 = non-fraud).
 No missing values were found in the dataset, indicating that no imputation or cleaning is necessary at this stage.
 
-***⚖️ Step 4: Explore Class Distribution (Understand the Class Imbalance)***
+**⚖️ Step 4: Explore Class Distribution (Understand the Class Imbalance)**
 
 Understanding the distribution of the target variable (Class) is a critical step in fraud detection problems. 
 This helps identify if there is a class imbalance, which is common in real-world fraud datasets where fraudulent transactions are rare compared to legitimate ones.
@@ -186,7 +186,7 @@ Name: count, dtype: int64
 The dataset is highly imbalanced, with only 64 fraudulent transactions out of 20,000 total records.
 Fraud cases represent approximately 0.32% of the dataset.
 
-***🔍 Step 5: Check Correlation Between Features (Especially with Class)***
+**🔍 Step 5: Check Correlation Between Features (Especially with Class)**
 
 To understand the relationships between features—especially how they correlate with the target variable Class—I generated a correlation matrix heatmap.
 Since correlation is primarily meaningful between numerical features, and the dataset is fully numeric, this analysis is appropriate and helpful at this stage of the project.
@@ -203,7 +203,8 @@ Below is the code I used, along with its explanation:
 
 <img width="1172" height="839" alt="Features Correlation Matrix" src="https://github.com/user-attachments/assets/faa8470a-8b7e-43e7-9613-ed3d66e7ec2d" />
 
-***📦 Step 6: Visualize Amount Feature by Class (Optional — Inspect for Outliers)***
+
+**📦 Step 6: Visualize Amount Feature by Class (Optional — Inspect for Outliers)**
 
 As an optional but insightful step, I visualized the distribution of the Amount feature across the two classes (0 = non-fraud, 1 = fraud). This helps in:
 Detecting potential outliers or extreme values in transaction amounts.
@@ -221,7 +222,8 @@ Fraudulent transactions (Class = 1) tend to have lower median values but show th
 Legitimate transactions (Class = 0) cover a wider range of transaction amounts with more variability.
 The boxplot reveals some extreme values, which could be investigated further or normalized during preprocessing.
 
-***🧮 Step 7: Prepare Features and Target***
+
+**🧮 Step 7: Prepare Features and Target**
 
 Before training a machine learning model, it's essential to separate the dataset into features (X) and target (y). 
 In this step, I: Dropped irrelevant or non-predictive columns.Isolated the target variable Class, which indicates whether a transaction is fraudulent.
@@ -236,7 +238,51 @@ Class is the label we're trying to predict, so it must be separated from the fea
 The remaining columns (mainly V1 to V28 and Amount) will be used as input features for training the model.
 This clean separation sets the stage for data balancing, scaling, and model training in the next steps.
 
+**✂️ Step 8: Train-Test Split**
 
+Before applying any oversampling or model training techniques, I split the dataset into training and testing sets. 
+This ensures that we train the model on one portion of the data and evaluate its performance on a separate, unseen portion.
+To maintain the class imbalance proportion (critical in fraud detection), I used stratified sampling.
+| **Python Code**                                         | **Comments**                                                                  |
+| ------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `X_train, X_test, y_train, y_test = train_test_split(`  | Split the dataset into training and test sets                                 |
+| `    X, y, stratify=y, test_size=0.2, random_state=42)` | Use stratified split to preserve fraud-to-nonfraud ratio; 80% train, 20% test |
+| `print("Before SMOTE:")`                                | Print heading to indicate pre-SMOTE class distribution                        |
+| `print(" - Fraud count:", sum(y_train == 1))`           | Show number of fraud cases in the training set                                |
+| `print(" - Normal count:", sum(y_train == 0))`          | Show number of normal transactions in the training set                        |
+***Output:***
+Before SMOTE:
+ - Fraud count: 51
+ - Normal count: 15949
+Insights:
+
+The training set retains the severe class imbalance seen in the full dataset.
+Only 51 fraud cases are present in the training data, compared to 15,949 normal transactions.
+This imbalance will be addressed in the next step using SMOTE (Synthetic Minority Over-sampling Technique) to prevent the model from being biased toward the majority class.
+⚠️ Performing train-test split before applying SMOTE is important to avoid data leakage and ensure valid model evaluation.
+
+**⚖️ Step 9: Handle Class Imbalance Using SMOTE**
+
+Given the severe class imbalance in the training data, I applied SMOTE (Synthetic Minority Over-sampling Technique) to generate synthetic samples of the minority class (fraud cases). 
+This technique helps balance the dataset and improves the model’s ability to detect fraud.
+| **Python Code**                                                   | **Comments**                                                                   |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| `smote = SMOTE(random_state=42)`                                  | Initialize the SMOTE oversampler with a fixed random state for reproducibility |
+| `X_resampled, y_resampled = smote.fit_resample(X_train, y_train)` | Apply SMOTE to the training data to oversample the minority class (fraud)      |
+| `print("After SMOTE:")`                                           | Print heading to indicate post-SMOTE class distribution                        |
+| `print(" - Fraud count:", sum(y_resampled == 1))`                 | Display updated number of fraud cases after oversampling                       |
+| `print(" - Normal count:", sum(y_resampled == 0))`                | Display number of normal transactions after oversampling (balanced)            |
+***Output:***
+After SMOTE:
+ - Fraud count: 15949
+ - Normal count: 15949
+
+Insights:
+
+SMOTE balanced the training data by increasing the fraud cases from 51 to 15,949, matching the number of normal transactions.
+This balanced dataset will help the model learn patterns from both classes equally, reducing bias toward the majority class.
+The test set remains untouched to provide a realistic evaluation of model performance on imbalanced real-world data.
+📌 SMOTE is applied only on the training set to prevent data leakage and maintain the integrity of the evaluation process.
 
 
 
