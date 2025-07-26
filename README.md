@@ -360,6 +360,7 @@ It clearly shows the imbalance in detecting fraud (likely many false negatives).
 The confusion matrix complements classification metrics and guides further model improvement.
 
 **🧪 Step 13: Calculate ROC AUC Score**
+
 To evaluate how well the model distinguishes between the two classes (fraud and non-fraud), I calculated the ROC AUC score using the predicted probabilities. 
 Unlike accuracy, ROC AUC provides a threshold-independent evaluation metric and is particularly valuable for imbalanced classification problems.
 | **Python Code**                             | **Comments**                                                  |
@@ -376,6 +377,7 @@ A ROC AUC score of around 0.87 indicates that the model has a good ability to se
 This metric helps compensate for the misleading nature of accuracy in imbalanced datasets.
 
 **💾 Step 14: Save the Trained Model**
+
 To preserve the trained pipeline (including preprocessing and model steps), I saved it to a .pkl file using joblib. This allows for later reuse in deployment or inference without retraining.
 | **Python Code**                                     | **Comments**                                     |
 | --------------------------------------------------- | ------------------------------------------------ |
@@ -387,6 +389,7 @@ To preserve the trained pipeline (including preprocessing and model steps), I sa
 ***✅ Project Status: I have successfully completed all the key stages of the credit card fraud detection project, including data preparation, modeling, evaluation, and deployment. The final model has been trained, validated, and saved for future use.***
 
 **🖥️ Step 15: Build and Deploy a Streamlit Web App**
+
 To make the trained fraud detection model interactive and user-friendly, I built a Streamlit web application. 
 This allows users to input transaction data and receive real-time predictions on whether the transaction is likely fraudulent or normal.
 ***📋 Features of the Streamlit App (app.py)***
@@ -404,19 +407,25 @@ This allows users to input transaction data and receive real-time predictions on
 | **Educational note**                     | A disclaimer at the bottom explains that the model is trained on anonymized data for demo purposes           |
 
 ***🚀 App Deployment Status***
+
 I ensured the app provides a seamless interactive experience for testing credit card transactions.
 The app uses session state for input persistence and dynamic updates.
 The model is safely loaded using joblib, and predictions are displayed with both classification output and probability scores.
 
-# ✅ Project Conclusion
+## ✅ Project Conclusion
 
-In this project, I developed a machine learning solution to detect fraudulent credit card transactions using a publicly available dataset. My goal was to build an effective classification system that not only performs well on imbalanced data but is also deployable for real-world usage.
+In this project, I developed a machine learning solution to detect fraudulent credit card transactions using a publicly available dataset. 
+My goal was to build an effective classification system that not only performs well on imbalanced data but is also deployable for real-world usage.
 
-I began by conducting thorough data exploration and preprocessing, including handling class imbalance using SMOTE and selecting appropriate features. I then trained a Random Forest classifier using a pipeline, ensuring that scaling and model training were seamlessly integrated. The model was evaluated using a variety of performance metrics, including precision, recall, F1-score, confusion matrix, and ROC AUC score—which provided a reliable understanding of its strengths and weaknesses.
+I began by conducting thorough data exploration and preprocessing, including handling class imbalance using SMOTE and selecting appropriate features. 
+I then trained a Random Forest classifier using a pipeline, ensuring that scaling and model training were seamlessly integrated. 
+The model was evaluated using a variety of performance metrics, including precision, recall, F1-score, confusion matrix, and ROC AUC score—which provided a reliable understanding of its strengths and weaknesses.
 
-While the overall accuracy was high, I recognized that detecting fraudulent cases (the minority class) was more challenging. The recall for the fraud class was relatively low, which is common in such imbalanced datasets, but the ROC AUC score indicated that the model has a good potential for separating the two classes.
+While the overall accuracy was high, I recognized that detecting fraudulent cases (the minority class) was more challenging. 
+The recall for the fraud class was relatively low, which is common in such imbalanced datasets, but the ROC AUC score indicated that the model has a good potential for separating the two classes.
 
-To make the solution accessible and interactive, I built a Streamlit web application that allows users to input transaction data and receive real-time predictions with a confidence score. The app supports manual input as well as quick testing with preloaded sample transactions, making it practical for both demonstration and experimentation.
+To make the solution accessible and interactive, I built a Streamlit web application that allows users to input transaction data and receive real-time predictions with a confidence score. 
+The app supports manual input as well as quick testing with preloaded sample transactions, making it practical for both demonstration and experimentation.
 
 This end-to-end pipeline—from data ingestion and model training to evaluation and deployment—demonstrates my ability to solve real-world classification problems with careful attention to data quality, model robustness, and user experience.
 
