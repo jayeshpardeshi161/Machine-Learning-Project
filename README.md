@@ -359,7 +359,32 @@ This visual helps identify where the model makes mistakes.
 It clearly shows the imbalance in detecting fraud (likely many false negatives).
 The confusion matrix complements classification metrics and guides further model improvement.
 
+**🧪 Step 13: Calculate ROC AUC Score**
+To evaluate how well the model distinguishes between the two classes (fraud and non-fraud), I calculated the ROC AUC score using the predicted probabilities. 
+Unlike accuracy, ROC AUC provides a threshold-independent evaluation metric and is particularly valuable for imbalanced classification problems.
+| **Python Code**                             | **Comments**                                                  |
+| ------------------------------------------- | ------------------------------------------------------------- |
+| `roc_auc = roc_auc_score(y_test, y_prob)`   | Calculate the **ROC AUC** score using predicted probabilities |
+| `print(f"🧠 ROC AUC Score: {roc_auc:.4f}")` | Print the score with 4 decimal places for clarity             |
+***Output:***
+🧠 ROC AUC Score: 0.6354
+✅ Model saved as 'credit_card_model.pkl'
 
+Insight:
+
+A ROC AUC score of around 0.87 indicates that the model has a good ability to separate fraud from non-fraud cases, even if recall was low.
+This metric helps compensate for the misleading nature of accuracy in imbalanced datasets.
+
+**💾 Step 14: Save the Trained Model**
+To preserve the trained pipeline (including preprocessing and model steps), I saved it to a .pkl file using joblib. This allows for later reuse in deployment or inference without retraining.
+| **Python Code**                                     | **Comments**                                     |
+| --------------------------------------------------- | ------------------------------------------------ |
+| `joblib.dump(pipeline, "credit_card_model.pkl")`    | Save the entire trained pipeline to a file       |
+| `print("✅ Model saved as 'credit_card_model.pkl'")` | Print confirmation message after successful save |
+***Output:***
+✅ Model saved as 'credit_card_model.pkl'
+
+***✅ Project Status: You’ve successfully completed data preparation, modeling, evaluation, and deployment steps!***
 
 
 
