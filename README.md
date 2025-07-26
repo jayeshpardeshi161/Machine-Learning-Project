@@ -320,12 +320,9 @@ Printing detailed classification metrics such as precision, recall, and F1-score
 | `print(classification_report(y_test, y_pred, digits=4))` | Display precision, recall, F1-score, and support for each class |
 ***Output:***
 🔍 Classification Report:
-
               precision    recall  f1-score   support
-
            0     0.9972    0.9995    0.9984      3987
            1     0.5000    0.1538    0.2353        13
-
     accuracy                         0.9968      4000
    macro avg     0.7486    0.5767    0.6168      4000
 weighted avg     0.9956    0.9968    0.9959      4000
@@ -337,6 +334,30 @@ For the minority class (fraud), the precision is moderate (0.50), but the recall
 The F1-score for fraud detection is low (0.2353), showing room for improvement in detecting fraudulent transactions.
 Overall accuracy is high (99.68%), but accuracy is less informative in imbalanced scenarios; hence, metrics like recall and F1-score for fraud are more critical.
 
+**📈 Step 12: Visualize Confusion Matrix**
+
+To better understand the model’s classification performance, I generated a confusion matrix. This visualization provides insight into the number of:
+True Positives (fraud correctly detected),
+True Negatives (normal transactions correctly identified),
+False Positives (normal transactions incorrectly flagged as fraud),
+False Negatives (fraud cases missed by the model).
+| **Python Code**                                                                                                        | **Comments**                                                      |
+| ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `print("📊 Confusion Matrix:")`                                                                                        | Print a heading indicating the confusion matrix will be displayed |
+| `cm = confusion_matrix(y_test, y_pred)`                                                                                | Compute the confusion matrix from true and predicted labels       |
+| `sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=["Normal", "Fraud"], yticklabels=["Normal", "Fraud"])` | Plot the confusion matrix as a heatmap with class labels          |
+| `plt.xlabel("Predicted")`                                                                                              | Label the x-axis as 'Predicted'                                   |
+| `plt.ylabel("Actual")`                                                                                                 | Label the y-axis as 'Actual'                                      |
+| `plt.title("Confusion Matrix")`                                                                                        | Add a descriptive title to the plot                               |
+| `plt.show()`                                                                                                           | Display the heatmap                                               |
+<img width="1189" height="846" alt="Confusion Matrix" src="https://github.com/user-attachments/assets/b6912d7e-ee47-42b4-959c-23a93908457a" />
+
+
+Purpose & Insight:
+
+This visual helps identify where the model makes mistakes.
+It clearly shows the imbalance in detecting fraud (likely many false negatives).
+The confusion matrix complements classification metrics and guides further model improvement.
 
 
 
