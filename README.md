@@ -162,7 +162,7 @@ Amount – transaction amount.
 Class – target variable (1 = fraud, 0 = non-fraud).
 No missing values were found in the dataset, indicating that no imputation or cleaning is necessary at this stage.
 
-***⚖️ Step 4: Explore Class Distribution (Understand the Class Imbalance)****
+***⚖️ Step 4: Explore Class Distribution (Understand the Class Imbalance)***
 
 Understanding the distribution of the target variable (Class) is a critical step in fraud detection problems. 
 This helps identify if there is a class imbalance, which is common in real-world fraud datasets where fraudulent transactions are rare compared to legitimate ones.
@@ -181,6 +181,50 @@ Original class distribution:
 1       64
 Name: count, dtype: int64
 <img width="1168" height="684" alt="Original class distribution" src="https://github.com/user-attachments/assets/061a92f9-b253-4d04-9334-774203ec2910" />
+
+***Insights:***
+The dataset is highly imbalanced, with only 64 fraudulent transactions out of 20,000 total records.
+Fraud cases represent approximately 0.32% of the dataset.
+
+***🔍 Step 5: Check Correlation Between Features (Especially with Class)***
+
+To understand the relationships between features—especially how they correlate with the target variable Class—I generated a correlation matrix heatmap.
+Since correlation is primarily meaningful between numerical features, and the dataset is fully numeric, this analysis is appropriate and helpful at this stage of the project.
+Below is the code I used, along with its explanation:
+| **Python Code**                                           | **Comments**                                                                  |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `plt.figure(figsize=(12, 9))`                             | Set the size of the figure to 12x9 inches                                     |
+| `sns.heatmap(df.corr(), cmap="coolwarm", linewidths=0.5)` | Create a heatmap to visualize pairwise correlation between numerical features |
+| `# df.corr()`                                             | Calculates correlation between features including the `Class` label           |
+| `# cmap="coolwarm"`                                       | Uses a diverging color palette to show positive and negative correlation      |
+| `# linewidths=0.5`                                        | Adds clear separation lines between cells for better readability              |
+| `plt.title("Feature Correlation Matrix")`                 | Add a descriptive title to the heatmap                                        |
+| `plt.show()`                                              | Display the heatmap                                                           |
+
+<img width="1172" height="839" alt="Features Correlation Matrix" src="https://github.com/user-attachments/assets/faa8470a-8b7e-43e7-9613-ed3d66e7ec2d" />
+
+***📦 Step 6: Visualize Amount Feature by Class (Optional — Inspect for Outliers)***
+
+As an optional but insightful step, I visualized the distribution of the Amount feature across the two classes (0 = non-fraud, 1 = fraud). This helps in:
+Detecting potential outliers or extreme values in transaction amounts.
+Observing whether fraudulent transactions tend to have distinctive amount patterns compared to normal ones.
+This step can guide preprocessing choices such as log transformation, normalization, or outlier handling, if necessary.
+| **Python Code**                               | **Comments**                                                   |
+| --------------------------------------------- | -------------------------------------------------------------- |
+| `sns.boxplot(x="Class", y="Amount", data=df)` | Create a boxplot to compare transaction amounts by fraud label |
+| `plt.title("Amount Distribution by Class")`   | Add a title to make the plot descriptive                       |
+| `plt.show()`                                  | Display the boxplot                                            |
+
+***Insights from the Plot:***
+
+Fraudulent transactions (Class = 1) tend to have lower median values but show the presence of a few high-amount outliers.
+Legitimate transactions (Class = 0) cover a wider range of transaction amounts with more variability.
+The boxplot reveals some extreme values, which could be investigated further or normalized during preprocessing.
+
+
+
+
+
 
 
 
