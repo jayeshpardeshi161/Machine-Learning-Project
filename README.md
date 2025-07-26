@@ -386,8 +386,39 @@ To preserve the trained pipeline (including preprocessing and model steps), I sa
 
 ***✅ Project Status: I have successfully completed all the key stages of the credit card fraud detection project, including data preparation, modeling, evaluation, and deployment. The final model has been trained, validated, and saved for future use.***
 
+**🖥️ Step 15: Build and Deploy a Streamlit Web App**
+To make the trained fraud detection model interactive and user-friendly, I built a Streamlit web application. 
+This allows users to input transaction data and receive real-time predictions on whether the transaction is likely fraudulent or normal.
+***📋 Features of the Streamlit App (app.py)***
+| **Component**                            | **Description**                                                                                              |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `st.set_page_config()`                   | Set the app title and layout                                                                                 |
+| `load_model()` with `@st.cache_resource` | Loads the trained model (`credit_card_model.pkl`) with caching and error handling                            |
+| **Feature names**                        | Defined consistent feature order (`V1–V28` + `Amount`) to match the training pipeline                        |
+| **Input modes**                          | Users can choose between: `Manual Input`, `Normal Transaction`, or `Fraudulent Transaction`                  |
+| **Form-based inputs**                    | Dynamic input fields are generated for each PCA-transformed feature                                          |
+| **Prediction logic**                     | On clicking “Predict”, the model returns the prediction (Normal or Fraud) and displays the fraud probability |
+| **Reset button**                         | Allows users to reset the form to initial state                                                              |
+| **Sample transactions**                  | Predefined values for a known normal and a fraudulent transaction for quick testing                          |
+| **Error handling**                       | Displays warnings if the model file is missing or features are mismatched                                    |
+| **Educational note**                     | A disclaimer at the bottom explains that the model is trained on anonymized data for demo purposes           |
 
+***🚀 App Deployment Status***
+I ensured the app provides a seamless interactive experience for testing credit card transactions.
+The app uses session state for input persistence and dynamic updates.
+The model is safely loaded using joblib, and predictions are displayed with both classification output and probability scores.
 
+# ✅ Project Conclusion
+
+In this project, I developed a machine learning solution to detect fraudulent credit card transactions using a publicly available dataset. My goal was to build an effective classification system that not only performs well on imbalanced data but is also deployable for real-world usage.
+
+I began by conducting thorough data exploration and preprocessing, including handling class imbalance using SMOTE and selecting appropriate features. I then trained a Random Forest classifier using a pipeline, ensuring that scaling and model training were seamlessly integrated. The model was evaluated using a variety of performance metrics, including precision, recall, F1-score, confusion matrix, and ROC AUC score—which provided a reliable understanding of its strengths and weaknesses.
+
+While the overall accuracy was high, I recognized that detecting fraudulent cases (the minority class) was more challenging. The recall for the fraud class was relatively low, which is common in such imbalanced datasets, but the ROC AUC score indicated that the model has a good potential for separating the two classes.
+
+To make the solution accessible and interactive, I built a Streamlit web application that allows users to input transaction data and receive real-time predictions with a confidence score. The app supports manual input as well as quick testing with preloaded sample transactions, making it practical for both demonstration and experimentation.
+
+This end-to-end pipeline—from data ingestion and model training to evaluation and deployment—demonstrates my ability to solve real-world classification problems with careful attention to data quality, model robustness, and user experience.
 
 ---
 
