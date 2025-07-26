@@ -221,6 +221,21 @@ Fraudulent transactions (Class = 1) tend to have lower median values but show th
 Legitimate transactions (Class = 0) cover a wider range of transaction amounts with more variability.
 The boxplot reveals some extreme values, which could be investigated further or normalized during preprocessing.
 
+***🧮 Step 7: Prepare Features and Target***
+
+Before training a machine learning model, it's essential to separate the dataset into features (X) and target (y). 
+In this step, I: Dropped irrelevant or non-predictive columns.Isolated the target variable Class, which indicates whether a transaction is fraudulent.
+| **Python Code**                          | **Comments**                                                        |
+| ---------------------------------------- | ------------------------------------------------------------------- |
+| `X = df.drop(columns=["Time", "Class"])` | Drop the `Time` column (not useful) and the `Class` column (target) |
+| `y = df["Class"]`                        | Define the target variable (`1` = fraud, `0` = non-fraud)           |
+Rationale:
+
+Time is often not informative for fraud detection in this anonymized dataset, and including it may introduce noise.
+Class is the label we're trying to predict, so it must be separated from the features.
+The remaining columns (mainly V1 to V28 and Amount) will be used as input features for training the model.
+This clean separation sets the stage for data balancing, scaling, and model training in the next steps.
+
 
 
 
