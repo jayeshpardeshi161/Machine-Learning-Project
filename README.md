@@ -384,7 +384,7 @@ To preserve the trained pipeline (including preprocessing and model steps), I sa
 ***Output:***
 ✅ Model saved as 'credit_card_model.pkl'
 
-***✅ Project Status: You’ve successfully completed data preparation, modeling, evaluation, and deployment steps!***
+***✅ Project Status: I have successfully completed all the key stages of the credit card fraud detection project, including data preparation, modeling, evaluation, and deployment. The final model has been trained, validated, and saved for future use.***
 
 
 
