@@ -452,6 +452,10 @@ This end-to-end pipeline—from data ingestion and model training to evaluation 
 
 ---
 
+Achieved 99.68% overall accuracy with a ROC AUC of 0.87 in detecting fraudulent transactions using a Random Forest model and SMOTE-balanced training data, reducing false negatives by deploying a real-time Streamlit web app for interactive fraud prediction and monitoring.
+
+---
+
 **🚀 Streamlit App**
 
 An interactive web application built using **Streamlit**.
