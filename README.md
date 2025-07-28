@@ -440,7 +440,7 @@ ________________________________________
 
 **Result :**
 
-"Achieved **99.68%** overall **accuracy** with a **ROC AUC of 0.87** in detecting fraudulent transactions using a **Random Forest model** and **SMOTE**-balanced training data, reducing false negatives by deploying a **real-time Streamlit** web **app** for interactive fraud prediction and monitoring."
+"Achieved **99.68%** overall **accuracy** with a **ROC AUC of 0.87** in detecting fraudulent transactions using a **Random Forest model** and **SMOTE**-balanced training data, reducing false negatives by deploying a **real-time Streamlit** web **app** for **interactive fraud prediction** and monitoring."
 
 ________________________________________
 
@@ -486,7 +486,7 @@ ________________________________________
 
 ## 📈 What Results I Achieved
 
-Developed a credit card fraud detection system using SMOTE and Random Forest, achieving **99.68% accuracy** and **reducing misclassification errors** by over **80%** on a highly imbalanced real-world dataset.
+Developed a credit card fraud detection system using **SMOTE** and **Random Forest**, achieving **99.68% accuracy** and **reducing misclassification errors** by over **80%** on a highly imbalanced real-world dataset.
 
 ________________________________________
 
