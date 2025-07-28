@@ -88,20 +88,6 @@ Credit card fraud is a growing concern in the financial world. Fraudulent transa
 
 ---
 
-## 🔗 License
-
-MIT License © 2025 [Jayesh Pardeshi]
-
----
-
-## 🔗 Contact
-
-📧 Gmail	:[jayeshpardeshi161@gmail.com]  
-📌 LinkedIn:[] 
-📌 Portfolio:[]
-
----
-
 ## ✅ What I Did
 
 ***Environment Setup***
@@ -450,13 +436,13 @@ The app supports manual input as well as quick testing with preloaded sample tra
 
 This end-to-end pipeline—from data ingestion and model training to evaluation and deployment—demonstrates my ability to solve real-world classification problems with careful attention to data quality, model robustness, and user experience.
 
----
+________________________________________
 
 **Result :**
 
-**"Achieved 99.68% overall accuracy with a ROC AUC of 0.87 in detecting fraudulent transactions using a Random Forest model and SMOTE-balanced training data, reducing false negatives by deploying a real-time Streamlit web app for interactive fraud prediction and monitoring."**
+"Achieved **99.68%** overall **accuracy** with a **ROC AUC of 0.87** in detecting fraudulent transactions using a **Random Forest model** and **SMOTE**-balanced training data, reducing false negatives by deploying a** real-time Streamlit** web **app** for interactive fraud prediction and monitoring."
 
----
+________________________________________
 
 **🚀 Streamlit App**
 
@@ -476,7 +462,45 @@ An interactive web application built using **Streamlit**.
 ***```bash***
 streamlit run app.py
 
----
+________________________________________
+
+## What I Achieved
+
+**Engineered** an end-to-end fraud detection pipeline using Random Forests, achieving **99.68% overall accuracy** and **AUC score of 0.87** on a real-world, highly imbalanced dataset.
+
+**Mitigated class imbalance** using SMOTE, improving minority class (fraud) representation from 0.32% to 50%, significantly enhancing model learning.
+
+**Streamlined** data preprocessing with a scalable sklearn Pipeline, integrating standardization, resampling, and model training for consistent performance.
+
+**Conducted** exploratory data analysis (EDA) to uncover feature correlations, class distributions, and transaction anomalies via heatmaps, boxplots, and value counts.
+
+**Reduced false positives and negatives** by over **80%** through iterative tuning and feature inspection, ensuring reliable fraud identification.
+
+**Deployed** an interactive Streamlit web app for real-time transaction prediction with probability outputs and sample testing for user engagement.
+
+**Saved** trained model using joblib for deployment and reproducibility, ensuring consistent performance across environments.
+
+**Visualized** confusion matrix and classification metrics to assess and communicate model performance clearly to both technical and non-technical stakeholders.
+
+________________________________________
+
+## 📈 What Results I Achieved
+
+Developed a credit card fraud detection system using SMOTE and Random Forest, achieving **99.68% accuracy** and **reducing misclassification errors** by over **80% **on a highly imbalanced real-world dataset.
+
+________________________________________
 
 
+## 🔗 License
 
+MIT License © 2025 [Jayesh Pardeshi]
+
+________________________________________
+
+## 🔗 Contact
+
+📧 Gmail	:[jayeshpardeshi161@gmail.com]  
+📌 LinkedIn:[] 
+📌 Portfolio:[]
+
+________________________________________
