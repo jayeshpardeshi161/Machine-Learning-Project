@@ -486,7 +486,7 @@ ________________________________________
 
 ## 📈 What Results I Achieved
 
-Developed a credit card fraud detection system using **SMOTE** and **Random Forest**, achieving **99.68% accuracy** and **reducing misclassification errors** by over **80%** on a highly imbalanced real-world dataset.
+Developed a credit card fraud detection system using **SMOTE** and **Random Forest**, achieving **99.68% accuracy** and **reducing** misclassification **errors by** over **80%**, and deployed a **Streamlit** web **app** for **real-time fraud prediction** on a highly imbalanced real-world dataset.
 
 ________________________________________
 
